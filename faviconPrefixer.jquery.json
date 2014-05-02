@@ -1,0 +1,32 @@
+{
+    "name": "faviconPrefixer",
+    "title": "jQuery faviconPrefixer",
+    "description": "Puts a favicon next to each link.",
+    "keywords": [
+        "jquery",
+        "favicon",
+        "plugins"
+    ],
+    "version": "0.0.1",
+    "author": {
+        "name": "Henrik Wenz",
+        "email": "handtrix@gmail.com",
+        "url": "https://github.com/HaNdTriX"
+    },
+    "maintainers": [{
+        "name": "Henrik Wenz",
+        "email": "handtrix@gmail.com",
+        "url": "https://github.com/HaNdTriX"
+    }],
+    "licenses": [{
+        "type": "MIT",
+        "url": "http://zenorocha.mit-license.org/"
+    }],
+    "bugs": "https://github.com/handtrix/jquery.faviconPrefixer/issues",
+    "homepage": "http://jqueryboilerplate.com",
+    "docs": "https://github.com/handtrix/jquery.faviconPrefixer#readme",
+    "download": "https://github.com/handtrix/jquery.faviconPrefixer/archive/master.zip",
+    "dependencies": {
+        "jquery": ">=1.4"
+    }
+}
