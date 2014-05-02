@@ -12,7 +12,7 @@ Sets favicon images next to links by doing only one Request.
 
     {
         // Favicon API
-        apiURL: "http://favicon.yandex.net/favicon/",
+        apiURL: "//favicon.yandex.net/favicon/",
 
         // ClassName of the favicon icon
         iconClassName: "favicon-icon",
