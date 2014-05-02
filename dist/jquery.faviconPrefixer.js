@@ -38,9 +38,6 @@
             this.findUrls();
             this.createSpriteUrl();
             this.setFavicons();
-
-            console.log("urls", this.urls);
-            console.log(this.urlMap);
         },
 
         findUrls: function() {
