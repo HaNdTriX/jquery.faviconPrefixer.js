@@ -2,9 +2,7 @@
 
 Sets favicon images next to links by doing only one Request.
 
-## Demo
-
-[Link](http://rawgit.com/HaNdTriX/jquery.faviconPrefixer.js/master/demo/index.html)
+[Demo](http://rawgit.com/HaNdTriX/jquery.faviconPrefixer.js/master/demo/index.html)
 
 ## Usage 
 
