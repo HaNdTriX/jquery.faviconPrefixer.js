@@ -1,9 +1,11 @@
 (function($, window, document, undefined) {
-    "use strict"
+    "use strict";
 
     var pluginName = "faviconPrefixer",
         defaults = {
             apiURL: "http://favicon.yandex.net/favicon/",
+            iconClassName: "favicon-icon",
+            glueMethod: "prepend",
             linkFilter: function(anchor) {
                 var url = anchor.host;
                 if (!url || url === "") {
@@ -11,9 +13,7 @@
                 }
                 // Return the hostname
                 return url;
-            },
-            paddingLeft: "20px",
-            faviconClassName: 'favicon-icon'
+            }
         };
 
     // The actual plugin constructor
@@ -54,19 +54,18 @@
         addFaviconNode: function(anchor) {
             var offset = this.getFaviconSpriteOffset(anchor),
                 // TODO: move css to seperate file
-                $favicon = $('<i>')
-                    .addClass(this.options.faviconClassName)
+                $favicon = $("<i>")
+                    .addClass(this.options.iconClassName)
                     .css({
-                        height: '16px',
-                        width: '16px',
-                        display: 'inline-block',
-                        verticalAlign: 'middle',
+                        height: "16px",
+                        width: "16px",
+                        display: "inline-block",
+                        verticalAlign: "middle",
                         backgroundImage: "url(" + this.spriteUrl + ")",
                         backgroundRepeat: "no-repeat",
-                        backgroundPosition: "0 " + offset,
-                        paddingLeft: this.options.paddingLeft
+                        backgroundPosition: "0 " + offset
                     });
-            $(anchor).prepend($favicon);
+            $(anchor)[this.options.glueMethod]($favicon);
         },
 
         setFavicons: function() {

@@ -10,16 +10,27 @@ Sets favicon images next to links by doing only one Request.
 
 ## Available options (defaults)
 
-	{
-		apiURL: 'http://favicon.yandex.net/favicon/',
-		paddingLeft: '20px',
+    {
+        // Favicon API
+        apiURL: "http://favicon.yandex.net/favicon/",
+
+        // ClassName of the favicon icon
+        iconClassName: "favicon-icon",
+
+        // use any jquery append method
+        glueMethod: "prepend",
+
+        // modify the link filter to your needs
         linkFilter: function(anchor) {
             var url = anchor.host;
-            if (!url || url === '') return;
-        	// Return the hostname
+            if (!url || url === "") {
+                return;
+            }
+            // Return the hostname
             return url;
         }
-	}
+        
+    }
 
 ## Contributing
 

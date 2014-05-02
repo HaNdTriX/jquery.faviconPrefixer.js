@@ -7,9 +7,13 @@
  *  Under MIT License
  */
 (function($, window, document, undefined) {
+    "use strict";
+
     var pluginName = "faviconPrefixer",
         defaults = {
             apiURL: "http://favicon.yandex.net/favicon/",
+            iconClassName: "favicon-icon",
+            glueMethod: "prepend",
             linkFilter: function(anchor) {
                 var url = anchor.host;
                 if (!url || url === "") {
@@ -17,8 +21,7 @@
                 }
                 // Return the hostname
                 return url;
-            },
-            paddingLeft: "20px"
+            }
         };
 
     // The actual plugin constructor
@@ -56,16 +59,27 @@
             return pos === -1 ? "16px" : ("-" + pos * 16 + "px");
         },
 
+        addFaviconNode: function(anchor) {
+            var offset = this.getFaviconSpriteOffset(anchor),
+                // TODO: move css to seperate file
+                $favicon = $("<i>")
+                    .addClass(this.options.iconClassName)
+                    .css({
+                        height: "16px",
+                        width: "16px",
+                        display: "inline-block",
+                        verticalAlign: "middle",
+                        backgroundImage: "url(" + this.spriteUrl + ")",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "0 " + offset
+                    });
+            $(anchor)[this.options.glueMethod]($favicon);
+        },
+
         setFavicons: function() {
             var that = this;
-            $.each(this.$anchors, function(e, anchor) {
-                var offset = that.getFaviconSpriteOffset(anchor);
-                $(anchor).css({
-                    backgroundImage: "url(" + that.spriteUrl + ")",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "0 " + offset,
-                    paddingLeft: that.options.paddingLeft
-                });
+            $.each(this.$anchors, function(i, anchor) {
+                that.addFaviconNode(anchor);
             });
         }
 
