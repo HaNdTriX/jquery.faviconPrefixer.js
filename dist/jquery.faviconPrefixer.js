@@ -11,7 +11,7 @@
 
     var pluginName = "faviconPrefixer",
         defaults = {
-            apiURL: "http://favicon.yandex.net/favicon/",
+            apiURL: "//favicon.yandex.net/favicon/",
             iconClassName: "favicon-icon",
             glueMethod: "prepend",
             linkFilter: function(anchor) {
