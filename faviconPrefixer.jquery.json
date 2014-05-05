@@ -23,10 +23,10 @@
         "url": "http://zenorocha.mit-license.org/"
     }],
     "bugs": "https://github.com/handtrix/jquery.faviconPrefixer/issues",
-    "homepage": "http://jqueryboilerplate.com",
+    "homepage": "https://github.com/handtrix/jquery.faviconPrefixer",
     "docs": "https://github.com/handtrix/jquery.faviconPrefixer#readme",
     "download": "https://github.com/handtrix/jquery.faviconPrefixer/archive/master.zip",
     "dependencies": {
-        "jquery": ">=1.4"
+        "jquery": ">=1.7"
     }
 }
