@@ -1,5 +1,5 @@
 /*
- *  jQuery faviconPrefixer - v0.0.1
+ *  jQuery faviconPrefixer - v0.0.6
  *  Puts a favicon next to each link.
  *  http://jqueryboilerplate.com
  *
