@@ -3,10 +3,10 @@
  *  Puts a favicon next to each link.
  *  http://jqueryboilerplate.com
  *
- *  Made by Henrik Wenz
+ *  Made by HaNdTriX
  *  Under MIT License
  */
-(function($, window, document, undefined) {
+;(function($, window, document, undefined) {
     "use strict";
 
     var pluginName = "faviconPrefixer",
@@ -24,7 +24,6 @@
             }
         };
 
-    // The actual plugin constructor
     function Plugin(element, options) {
         this.element = element;
         this.$element = $(element);
@@ -53,13 +52,13 @@
             this.spriteUrl = this.options.apiURL + this.urls.join("/");
         },
 
-        getFaviconSpriteOffset: function(url) {
-            var name = this.options.linkFilter(url),
+        getFaviconSpriteOffset: function(anchor) {
+            var name = this.options.linkFilter(anchor),
                 pos = this.urls.indexOf(name);
             return pos === -1 ? "16px" : ("-" + pos * 16 + "px");
         },
 
-        addFaviconNode: function(anchor) {
+        setFaviconNode: function(anchor) {
             var offset = this.getFaviconSpriteOffset(anchor),
                 // TODO: move css to seperate file
                 $favicon = $("<i>")
@@ -79,7 +78,7 @@
         setFavicons: function() {
             var that = this;
             $.each(this.$anchors, function(i, anchor) {
-                that.addFaviconNode(anchor);
+                that.setFaviconNode(anchor);
             });
         }
 

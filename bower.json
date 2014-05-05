@@ -1,22 +1,25 @@
 {
-  "name": "jquery.faviconPrefixer.js",
-  "version": "0.0.5",
-  "homepage": "https://github.com/HaNdTriX/jquery.faviconPrefixer.js",
-  "authors": [
-    "HaNdTriX <handtrix@gmail.com>"
-  ],
-  "description": "Adds favicon images next to anchor tags.",
-  "main": "dist/jquery.faviconPrefixer.js",
-  "keywords": [
-    "jquery",
-    "favicon"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+    "name": "jquery.faviconPrefixer.js",
+    "version": "0.0.6",
+    "homepage": "https://github.com/HaNdTriX/jquery.faviconPrefixer.js",
+    "authors": [
+        "HaNdTriX <handtrix@gmail.com>"
+    ],
+    "description": "Adds favicon images next to anchor tags.",
+    "main": "dist/jquery.faviconPrefixer.js",
+    "keywords": [
+        "jquery",
+        "favicon"
+    ],
+    "dependencies": {
+        "jquery": ">1.7"
+    },
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
 }
