@@ -4,10 +4,12 @@
     var pluginName = "faviconPrefixer",
         defaults = {
             apiURL: "//favicon.yandex.net/favicon/",
-            iconClassName: "favicon-icon",
+            iconClassName: "fp-icon",
+            iconSoloClassName: "fp-solo",
             glueMethod: "prepend",
-            linkFilter: function(anchor) {
-                var url = anchor.host;
+            targetSelector: "a, i[data-host]",
+            linkFilter: function(node) {
+                var url = node.host || (node.dataset ? node.dataset.host : "");
                 if (!url || url === "") {
                     return;
                 }
@@ -19,8 +21,8 @@
     function Plugin(element, options) {
         this.element = element;
         this.$element = $(element);
-        this.$anchors = this.$element.find("a");
         this.options = $.extend({}, defaults, options);
+        this.$anchors = this.$element.find(this.options.targetSelector);
         this._defaults = defaults;
         this._name = pluginName;
         this.init();
@@ -64,7 +66,12 @@
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "0 " + offset
                     });
-            $(anchor)[this.options.glueMethod]($favicon);
+
+            if(anchor.nodeName === "I"){
+                $(anchor).replaceWith($favicon.addClass(this.options.iconSoloClassName));
+            }else{
+                $(anchor)[this.options.glueMethod]($favicon);
+            }
         },
 
         setFavicons: function() {
