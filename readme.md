@@ -6,7 +6,7 @@ Sets favicon images next to links by doing only one Request.
 
 ## Usage 
 
-    $(".favicon-links").faviconPrefixer();
+    $("a,  i[data-host]").faviconPrefixer();
 
 ## Available options (defaults)
 
@@ -22,12 +22,12 @@ Sets favicon images next to links by doing only one Request.
 
         // modify the link filter to your needs
         linkFilter: function(anchor) {
-            var url = anchor.host;
-            if (!url || url === "") {
+            var host = node.host || (node.dataset ? node.dataset.host : "");
+            if (!host || host === "") {
                 return;
             }
             // Return the hostname
-            return url;
+            return host;
         }
         
     }

@@ -4,7 +4,7 @@
 	"description": "Sets the corresponding Favicon infront of each link",
 	"author": "HaNdTriX",
 	"homepage": "https://github.com/HaNdTrix/jquery.faviconPrefixer/",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"devDependencies": {
 		"grunt": "~0.4.1",
 		"grunt-cli": "~0.1.7",

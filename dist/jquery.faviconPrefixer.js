@@ -1,5 +1,5 @@
 /*
- *  jQuery faviconPrefixer - v0.0.7
+ *  jQuery faviconPrefixer - v0.0.8
  *  Puts a favicon next to each link.
  *  https://github.com/handtrix/jquery.faviconPrefixer
  *
@@ -13,16 +13,15 @@
         defaults = {
             apiURL: "//favicon.yandex.net/favicon/",
             iconClassName: "fp-icon",
-            iconSoloClassName: "fp-solo",
             glueMethod: "prepend",
-            targetSelector: "a, i[data-host]",
+            backgroundImage: "images/default-favicon.png",
             linkFilter: function(node) {
-                var url = node.host || (node.dataset ? node.dataset.host : "");
-                if (!url || url === "") {
+                var host = node.host || (node.dataset ? node.dataset.host : "");
+                if (!host || host === "") {
                     return;
                 }
                 // Return the hostname
-                return url;
+                return host;
             }
         };
 
@@ -30,7 +29,6 @@
         this.element = element;
         this.$element = $(element);
         this.options = $.extend({}, defaults, options);
-        this.$anchors = this.$element.find(this.options.targetSelector);
         this._defaults = defaults;
         this._name = pluginName;
         this.init();
@@ -45,7 +43,7 @@
         },
 
         findUrls: function() {
-            this.urls = $.map(this.$anchors, this.options.linkFilter);
+            this.urls = $.map(this.$element, this.options.linkFilter);
             this.urls = $.unique(this.urls);
         },
 
@@ -62,8 +60,9 @@
 
         setFaviconNode: function(anchor) {
             var offset = this.getFaviconSpriteOffset(anchor),
+                isIconNode = anchor.nodeName === "I",
                 // TODO: move css to seperate file
-                $favicon = $("<i>")
+                $favicon = $(isIconNode ? anchor : "<i>")
                     .addClass(this.options.iconClassName)
                     .css({
                         height: "16px",
@@ -84,7 +83,7 @@
 
         setFavicons: function() {
             var that = this;
-            $.each(this.$anchors, function(i, anchor) {
+            $.each(this.$element, function(i, anchor) {
                 that.setFaviconNode(anchor);
             });
         }
